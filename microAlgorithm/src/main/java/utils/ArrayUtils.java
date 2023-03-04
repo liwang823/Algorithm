@@ -40,4 +40,25 @@ public class ArrayUtils {
             left = 2 * index + 1;
         }
     }
+
+    public static int getMaxBit(int[] arr){
+
+        int max = Integer.MIN_VALUE;
+
+        for (int num: arr){
+            max = Math.max(max, num);
+        }
+
+        int res = 0;
+        while (max != 0){
+            max /= 10;
+            res++;
+        }
+
+        return res;
+    }
+
+    public static int getBit(int x, int d){
+        return (x / (int) Math.pow(10, d - 1)) % 10;
+    }
 }

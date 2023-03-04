@@ -47,4 +47,11 @@ public class sortAlgorithmTest {
         quickSort.process(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
+
+    @Test
+    public void buttonSortTest(){
+        System.out.println(Arrays.toString(arr));
+        buttonSort.solution(arr);
+        System.out.println(Arrays.toString(arr));
+    }
 }
