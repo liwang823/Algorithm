@@ -10,7 +10,7 @@ import org.junit.Test;
 public class listNodeAlgorithmTest {
 
     @Test
-    public void test(){
+    public void existLoopTest(){
 
         ListNode node1 = new ListNode();
         node1.setVal(1);
