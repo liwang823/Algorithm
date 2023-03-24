@@ -61,8 +61,8 @@ public class Dijkstra2 {
             indexMap.put(nodes[index1], index2);
             indexMap.put(nodes[index2], index1);
             GraphNode temp = nodes[index1];
-            nodes[index2] = nodes[index1];
-            nodes[index1] = temp;
+            nodes[index1] = nodes[index2];
+            nodes[index2] = temp;
         }
 
         public void insertHeapify(int index){
