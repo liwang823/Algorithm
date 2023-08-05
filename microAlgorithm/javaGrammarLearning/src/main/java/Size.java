@@ -4,5 +4,5 @@
  * @date 2023/7/9 09:02
  */
 public enum Size {
-    SMALL, MEDIUM, LARGE;
+    SMALL, MEDIUM, LARGE
 }
