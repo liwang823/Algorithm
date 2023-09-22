@@ -1,3 +1,5 @@
+package chapter01;
+
 import lombok.Data;
 
 /**

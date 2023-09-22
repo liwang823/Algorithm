@@ -1,8 +1,8 @@
+package chapter01;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -22,7 +22,7 @@ public class ioLearning {
 
         byte[] buff = new byte[1024];
 
-        int byteRead = 0;
+        int byteRead;
 
         while ((byteRead = fileInputStream.read(buff)) != -1){
             output.write(buff, 0 , byteRead);

@@ -1,3 +1,5 @@
+package chapter01;
+
 /**
  * @author 李旺
  * @version 1.0
@@ -8,9 +10,9 @@ public enum Size {
     MEDIUM(1, "中"),
     LARGE(2, "大");
 
-    int code;
+    final int code;
 
-    String msg;
+    final String msg;
 
     Size(int code, String msg){
         this.code = code;

@@ -1,3 +1,5 @@
+package chapter01;
+
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -50,7 +52,7 @@ public class fileUtilsLearning {
         CSVFormat csvFormat = CSVFormat.newFormat(',').withQuote('"').
                 withNullString("N/A").withIgnoreSurroundingSpaces(true);
 
-        FileReader fileReader = null;
+        FileReader fileReader;
         Map<String, List<Object>> csvMap = new HashMap<>();
         try {
             fileReader = new FileReader(path);
