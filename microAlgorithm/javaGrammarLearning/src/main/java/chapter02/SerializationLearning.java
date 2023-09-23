@@ -1,7 +1,12 @@
 package chapter02;
 
+import chapter02.entity.Employee;
 import chapter02.entity.Student;
 import chapter02.utils.FileUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.*;
 
@@ -52,6 +57,74 @@ public class SerializationLearning {
         }
 
         return result;
+    }
+
+    /**
+     * 将对象序列化为字符串
+     * @param object: 对象
+     * @return 序列化之后的字符串
+     */
+    public String writeObjectAsString(Object object){
+
+        // 定义序列化对象
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        // 反序列化
+        String s = null;
+        try {
+            s = mapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return s;
+    }
+
+    /**
+     * 将对象写成xml文件
+     * @param object: 待写成xml文件的类
+     * @param fileName: 文件名
+     */
+    public void writeObjectToFileIgnoreFormat(Object object, String fileName){
+
+        // 定义序列化对象
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        // 反序列化
+        try {
+            if (! (object instanceof  String)){
+                mapper.writeValue(new File(fileName),
+                        this.writeObjectAsString(object));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 读取文件中的对象忽略文件格式
+     * @param filePath: 文件路径
+     * @param objectClass: 对象的类
+     * @return 读取的对象
+     */
+    public Object readObjectIgnoreFormat(String filePath, Class objectClass){
+
+        // 反序列化的类
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        // 读取
+        Object o = null;
+        try {
+            o = mapper.readValue(new File(filePath), objectClass);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return o;
     }
 
 }
